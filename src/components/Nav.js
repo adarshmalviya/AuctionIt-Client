@@ -5,7 +5,9 @@ import { Link as RouterLink } from 'react-router-dom';
 import { Button, Link } from '@mui/material';
 // Files
 import './css/nav.css';
-import logo from '../images/nav-bar-banner.png';
+// import logo from '../images/nav-bar-banner.png';
+import logo from '../images/AuctionIt_Logo.png';
+
 // Actions
 import { logout } from '../actions/auth';
 
@@ -15,7 +17,7 @@ const Nav = (props) => {
       <div className='nav__group1'>
         <div className='nav__image-container'>
           <RouterLink to='/'>
-            <img className='nav__icon' src={logo} alt='navicon' href='/' />
+            <img className='nav__icon' src={logo} lenght='45px' alt='navicon' href='/' />
           </RouterLink>
         </div>
 
@@ -46,9 +48,7 @@ const Nav = (props) => {
               Logout
             </Link>
           ) : (
-            <Link to='/login' sx={{ textDecoration: 'none' }}>
-              Login
-            </Link>
+            <></>
           )}
         </div>
       </div>

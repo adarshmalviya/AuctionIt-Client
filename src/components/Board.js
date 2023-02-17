@@ -12,6 +12,7 @@ import {
   boardStyle,
   paginationStyle,
 } from './css/boardStyle';
+import './css/card.css';
 // Actions
 import { loadAds, adPostedByOther, updateAdInList } from '../actions/ad';
 import { setAlert, clearAlerts } from '../actions/alert';
@@ -89,8 +90,8 @@ const Board = (props) => {
           );
         })}
       </Box>
-      <Box sx={paginationStyle}>
-        <ButtonGroup variant='outlined' size='small'>
+      <Box sx={paginationStyle} >
+        <ButtonGroup variant='outlined' size='small' className='prvNext'>
           <Button
             disabled={pageNumber === 1}
             onClick={(e) => clickPageNumberButton(pageNumber - 1)}
@@ -109,6 +110,7 @@ const Board = (props) => {
             );
           })}
           <Button
+          className='prvNext'
             disabled={pageNumber === pageNumbers[pageNumbers.length - 1]}
             onClick={(e) => clickPageNumberButton(pageNumber + 1)}
           >

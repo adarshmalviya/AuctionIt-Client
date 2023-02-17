@@ -1,3 +1,5 @@
+import { boxSizing } from "@mui/system";
+
 export const adAreaStyle = {
   display: 'grid',
   gridTemplateColumns: 'auto auto auto',
@@ -14,9 +16,12 @@ export const boardStyle = {
 export const paginationStyle = {
   display: 'flex',
   justifyContent: 'center',
+  
 };
 
 export const boardCardStyle = {
   width: 240,
   height: 330,
+  borderRadius: 25,
+  background: 'white'
 };
