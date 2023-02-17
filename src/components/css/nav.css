@@ -1,7 +1,8 @@
 .nav__icon {
   object-fit: contain;
-  height: 40px;
-  margin-left: 15px;
+  margin-top: 30px;
+  height: 200px;
+  margin-left: 10px;
 }
 
 .nav {
@@ -10,7 +11,7 @@
   align-items: center;
   position: sticky;
   top: 0;
-  background-color: #ffffff;
+  background-color: whitesmoke;
   width: 100%;
   z-index: 100;
   box-shadow: 0 0 7px 0px #cecece;

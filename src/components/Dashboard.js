@@ -68,7 +68,7 @@ const Dashboard = (props) => {
   ) : (
     <Fragment>
       <Box sx={boxStyle}>
-        <Paper sx={paperStyle}>
+        <Paper  sx={paperStyle}>
           <Typography variant='h5'>My Profile</Typography>
           <Box sx={profileTableStyle}>
             <Table sx={{ width: '60%', minWidth: '200px' }} aria-label='simple table'>
