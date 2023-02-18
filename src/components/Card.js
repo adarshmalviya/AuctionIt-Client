@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 // Files
 import imagePlaceholder from '../images/no-image-icon.png';
 import { secondsToHmsShort } from '../utils/secondsToHms';
+import './css/card.css';
 
 function MediaCard(props) {
   const navigate = useNavigate();
@@ -41,27 +42,31 @@ function MediaCard(props) {
       }}
       style={{ textDecoration: 'none' }}
     >
-      <Card style={props.cardStyle}>
-        <CardActionArea>
+      <Card style={props.cardStyle} className='card'>
+        <CardActionArea className='cardActionArea'>
           {!props.dashCard && (
-            <CardMedia
+            <CardMedia 
+              className='img'
               component='img'
-              height='200px'
+              // height='200px'
               src={props.ad.image ? props.ad.image : imagePlaceholder}
               alt={props.ad.productName}
+              sx={{height: "200px",
+                width: "100%"
+              }}
             />
           )}
           <CardContent>
-            <Typography gutterBottom variant='h6' component='div'>
+            <Typography className='description' gutterBottom variant='h6' component='div'>
               {props.ad.productName}
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            <Typography className='description' variant='body2' color='text.secondary'>
               Price: $ {props.ad.currentPrice.$numberDecimal}
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            <Typography className='description' variant='body2' color='text.secondary'>
               Remaining: {secondsToHmsShort(props.ad.timer)}
             </Typography>
-            <Typography variant='body2' color='text.secondary'>
+            <Typography className='description' variant='body2' color='text.secondary'>
               Status: {updateAuctionStatus(props.ad)}
             </Typography>
           </CardContent>

@@ -201,6 +201,7 @@ const AdForm = (props) => {
                 handleFormChange(e);
               }}
               size='small'
+              placeholder='Name of the Product'
               sx={formTextField}
             ></TextField>
           </Box>

@@ -11,7 +11,9 @@ import { setAlert, removeAlert } from '../actions/alert';
 // Files
 import './css/auth.css';
 import Spinner from './Spinner';
-import logo from '../images/auctionslogo3.png';
+// import logo from '../images/auctionslogo3.png';
+import logo from '../images/AuctionIt_Logo.png';
+
 import Alert from './Alert';
 // import Register from './Register';
 
@@ -66,6 +68,8 @@ const Login = (props) => {
 
             <div className='form-group'>
               <TextField
+              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+
                 className='auth__text-field'
                 size='small'
                 variant='outlined'
@@ -80,6 +84,8 @@ const Login = (props) => {
             </div>
             <div className='form-group'>
               <TextField
+              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+
                 className='auth__text-field'
                 size='small'
                 variant='outlined'

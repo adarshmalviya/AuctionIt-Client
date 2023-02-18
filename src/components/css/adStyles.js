@@ -4,7 +4,7 @@ export const boxStyle = {
   marginTop: '1rem',
 };
 
-export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem' };
+export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "whitesmoke" };
 
 export const adArea = {
   display: 'flex',
@@ -29,6 +29,7 @@ export const adFormArea = {
   paddingTop: '2rem',
   display: 'flex',
   flexDirection: 'column',
+  background: "whitesmoke",
 };
 
 export const formComponent = {
@@ -37,6 +38,7 @@ export const formComponent = {
 
 export const formTextField = {
   width: '100%',
+  background: "white"
 };
 
 export const formSubmitButtonContainer = {
