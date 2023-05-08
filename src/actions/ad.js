@@ -32,17 +32,28 @@ export const updateRecommendationAd = (userId, adId) => async (dispatch) => {
 
 // Load ads
 export const loadAds =
-  (userId = null) =>
+  (userId) =>
     async (dispatch) => {
       let config = null;
       if (userId) {
         config = { params: { user: userId } };
       }
       try {
+        // const res = await axios.get(
+        //   `${process.env.REACT_APP_API_BASE_URL}/ad?option=notexpired`,
+        //   // `https://auctionit-api.onrender.com/?user_id=${userId}`,
+        //   config
+        // );
+
+        // console.log("Res from loadAds API : ");
+        // console.log(res);
+
+        // console.log("res.data from loadAds API : ");
+        // console.log(res.data);
         const res = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/ad?option=notexpired`,
-          config
-        );
+          `https://auctionit-api.onrender.com/?user_id=${userId}`
+        )
+
 
         dispatch({
           type: LOAD_ADS,
@@ -60,6 +71,36 @@ export const loadAds =
         }
       }
     };
+// Previous Load Add Function... Directly returns all the ads available 
+// export const loadAds =
+//   (userId = null) =>
+//     async (dispatch) => {
+//       let config = null;
+//       if (userId) {
+//         config = { params: { user: userId } };
+//       }
+//       try {
+//         const res = await axios.get(
+//           `${process.env.REACT_APP_API_BASE_URL}/ad?option=notexpired`,
+//           config
+//         );
+
+//         dispatch({
+//           type: LOAD_ADS,
+//           payload: res.data,
+//         });
+//       } catch (error) {
+//         // Get errors array sent by api
+//         if (!error.response) {
+//           return dispatch(setAlert('Server error', 'error'));
+//         }
+//         console.log(error.response);
+//         const errors = error.response.data.errors;
+//         if (errors) {
+//           errors.forEach((error) => dispatch(setAlert(error.msg, 'error')));
+//         }
+//       }
+//     };
 
 // Load ad details
 export const loadAdDetails = (adId) => async (dispatch) => {

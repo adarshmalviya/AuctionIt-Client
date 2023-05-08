@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import axios from 'axios';
+import { connect } from 'react-redux';
 // Components
 import LoadingDisplay from './LoadingDisplay';
 import Card from './Card';
@@ -7,7 +8,7 @@ import { Button, Box, ButtonGroup } from '@mui/material';
 // Styling
 import { boardStyle, adAreaStyle, paginationStyle, dashCardStyle } from './css/dashStyle';
 
-const DashboardAdList = () => {
+const DashboardAdList = (props) => {
   const [ads, setAds] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pageNumber, setPageNumber] = useState(1);
@@ -46,7 +47,7 @@ const DashboardAdList = () => {
           {ads.slice(firstAdIndex, lastAdIndex).map((ad) => {
             return (
               <div className='ad__container' key={ad._id}>
-                <Card ad={ad} key={ad._id} dashCard={true} cardStyle={dashCardStyle} />
+                <Card user={props.user} ad={ad} key={ad._id} dashCard={true} cardStyle={dashCardStyle} />
               </div>
             );
           })}
@@ -86,4 +87,11 @@ const DashboardAdList = () => {
   );
 };
 
-export default DashboardAdList;
+const mapStateToProps = (state) => ({
+  user: state.auth.user,
+});
+
+export default connect(mapStateToProps, {
+})(DashboardAdList);
+
+// export default DashboardAdList;

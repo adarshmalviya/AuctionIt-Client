@@ -42,6 +42,7 @@ const Ad = (props) => {
   const [bidButton, setBidButton] = useState(true);
   const [ownerAd, setOwnerAd] = useState(false);
   const [startButton, setStartButton] = useState(true);
+  const [sellerRating, setSellerRating] = useState(0);
   const navigate = useNavigate();
 
   // Bid button status
@@ -76,6 +77,19 @@ const Ad = (props) => {
   useEffect(() => {
     updateBidButtonStatus(bidPrice);
   }, [bidPrice, props.adDetails.auctionEnded]);
+
+  // Add Seller Rating
+  useEffect(() => {
+    if (props.adDetails.owner && props.adDetails.owner.ratings && props.adDetails.owner.ratings.length > 0) {
+      let ratingArray = props.adDetails.owner.ratings;
+      let sum = 0;
+      ratingArray.forEach(x => {
+        sum += x;
+      });
+      sum = sum / ratingArray.length;
+      setSellerRating(sum.toFixed(2))
+    }
+  })
 
   // For ad rooms
   useEffect(() => {
@@ -228,6 +242,9 @@ const Ad = (props) => {
                     </Typography>
                     <Typography variant='body1'>
                       Seller: {props.adDetails.owner.username}
+                    </Typography>
+                    <Typography variant='body1'>
+                      Seller Rating: {sellerRating}
                     </Typography>
                     <Typography variant='body1'>
                       Base price: {props.adDetails.basePrice.$numberDecimal}
