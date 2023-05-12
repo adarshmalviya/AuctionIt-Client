@@ -25,37 +25,36 @@ const Board = (props) => {
   const [adPerPage] = useState(6);
 
   useEffect(() => {
-    if (props.passedUser) {
-      props.loadAds(props.passedUser);
-    } else {
-      props.loadAds();
-      const socket = openSocket(process.env.REACT_APP_API_BASE_URL);
-      // when new ad is added
-      socket.on('addAd', (data) => {
-        if (
-          props.user &&
-          data.ad.owner &&
-          data.ad.owner.toString() !== props.user._id.toString()
-        ) {
-          props.clearAlerts();
-          props.setAlert('New ads available', 'info', 60000);
-        }
-      });
-      // when auction starts/ends
-      socket.on('auctionStarted', (res) => {
-        props.updateAdInList(res.data);
-      });
-      socket.on('auctionEnded', (res) => {
-        props.updateAdInList(res.data);
-      });
-
-      // disconnect socket when page left
-      return () => {
-        socket.emit('leaveHome');
-        socket.off();
+    // if (props.user) {
+    // } else {
+    // props.loadAds();
+    props.loadAds(props.user);
+    const socket = openSocket(process.env.REACT_APP_API_BASE_URL);
+    // when new ad is added
+    socket.on('addAd', (data) => {
+      if (
+        props.user &&
+        data.ad.owner &&
+        data.ad.owner.toString() !== props.user._id.toString()
+      ) {
         props.clearAlerts();
-      };
-    }
+        props.setAlert('New ads available', 'info', 60000);
+      }
+    });
+    // when auction starts/ends
+    socket.on('auctionStarted', (res) => {
+      props.updateAdInList(res.data);
+    });
+    socket.on('auctionEnded', (res) => {
+      props.updateAdInList(res.data);
+    });
+
+    // disconnect socket when page left
+    return () => {
+      socket.emit('leaveHome');
+      socket.off();
+      props.clearAlerts();
+    };
   }, []);
 
   // Check if user is logged
@@ -77,7 +76,7 @@ const Board = (props) => {
     setPageNumber(num);
   };
 
-  return props.loading ? (
+  return (props.loading || props.ads.length == 0) ? (
     <Spinner />
   ) : (
     <Box sx={boardStyle}>
@@ -110,7 +109,7 @@ const Board = (props) => {
             );
           })}
           <Button
-          className='prvNext'
+            className='prvNext'
             disabled={pageNumber === pageNumbers[pageNumbers.length - 1]}
             onClick={(e) => clickPageNumberButton(pageNumber + 1)}
           >

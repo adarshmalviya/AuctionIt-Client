@@ -11,6 +11,7 @@ import { setAlert, removeAlert } from '../actions/alert';
 // Files
 import './css/auth.css';
 import Spinner from './Spinner';
+import LoginSpinner from './LoginSpinner';
 // import logo from '../images/auctionslogo3.png';
 import logo from '../images/AuctionIt_Logo.png';
 
@@ -23,6 +24,8 @@ const Login = (props) => {
     password: '',
   });
 
+  const [wait, setWait] = useState(false);
+
   const { email, password } = formData;
 
   const onChange = (e) => {
@@ -34,6 +37,7 @@ const Login = (props) => {
   };
 
   const onSubmit = async (e) => {
+    // setWait(true);
     e.preventDefault();
     props.login(email, password);
   };
@@ -68,7 +72,7 @@ const Login = (props) => {
 
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
 
                 className='auth__text-field'
                 size='small'
@@ -84,7 +88,7 @@ const Login = (props) => {
             </div>
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
 
                 className='auth__text-field'
                 size='small'
@@ -113,10 +117,12 @@ const Login = (props) => {
             Don't have an account? <Link to='/register'>Sign Up</Link>
           </p>
           <div className='auth__separator' />
+          {/* Guest Login
           <p>To use the app without login:</p>
           <Button variant='contained' className='auth__button' onClick={props.skipLogin}>
             Skip
-          </Button>
+          </Button> */}
+          {wait ? <div><LoginSpinner /></div> : <></>}
         </div>
       </section>
     </Fragment>

@@ -39,6 +39,7 @@ export const loadAds =
         config = { params: { user: userId } };
       }
       try {
+        // Without recommendation
         // const res = await axios.get(
         //   `${process.env.REACT_APP_API_BASE_URL}/ad?option=notexpired`,
         //   // `https://auctionit-api.onrender.com/?user_id=${userId}`,
@@ -50,10 +51,21 @@ export const loadAds =
 
         // console.log("res.data from loadAds API : ");
         // console.log(res.data);
-        const res = await axios.get(
-          `https://auctionit-api.onrender.com/?user_id=${userId}`
-        )
 
+        // With Recommendation
+        // const res = await axios.get(
+        //   // `${process.env.REACT_APP_RECOMMENDATION_URL}/?user_id=${userId}`
+        // `https://auctionit-api.onrender.com/?user_id=${userId}`
+        //   `http://127.0.0.1:105/?user_id=${userId}`
+
+        // )
+        // const res = await axios.get('http://127.0.0.1:105/', {
+        //   params: {
+        //     user_id: userId
+        //   }
+        // });
+        // const res = await axios.get(`http://127.0.0.1:105/?user_id=${userId._id}`);
+        const res = await axios.get(`${process.env.REACT_APP_RECOMMENDATION_URL}/?user_id=${userId._id}`);
 
         dispatch({
           type: LOAD_ADS,
@@ -235,8 +247,8 @@ export const placeBid = (adId, bidAmount) => async (dispatch) => {
 export const addReview = (adId, comment, ownerId) => async (dispatch) => {
   console.log("Request received at backend");
   const url = `${process.env.REACT_APP_API_BASE_URL}/ad/${adId}`;
-  // const ratingUrl = `${process.env.RATING_URL}/postreview`;
-  const ratingUrl = "http://127.0.0.1:5000/postreview"; // Require to change rating url as per the deployment
+  const ratingUrl = `${process.env.REACT_APP_RATING_URL}/postreview`;
+  // const ratingUrl = "http://127.0.0.1:5000/postreview"; // Require to change rating url as per the deployment
   const userProfilUrl = `${process.env.REACT_APP_API_BASE_URL}/user/${ownerId}`;
   try {
     let rating = await axios.post(ratingUrl, { review: comment });

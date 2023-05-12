@@ -211,25 +211,32 @@ const Ad = (props) => {
   return (
     <div className='ad__page'>
       {props.loading ? (
-        <LoadingDisplay />
+        <Spinner />
       ) : (
         <Fragment>
           <Alert />
           {!props.adDetails.owner ? (
-            <LoadingDisplay />
+            <Spinner />
           ) : (
             <Box sx={boxStyle}>
               <Paper sx={paperStyle}>
                 <Typography variant='h4'>{props.adDetails.productName}</Typography>
                 <Box sx={adArea}>
                   <Box sx={imageContainer}>
-                    {!props.imageLoading && (
+                    {props.imageLoading ? (< LoadingDisplay />) : (
                       <img
                         src={props.adDetails.image ? props.adImage : imagePlaceholder}
                         alt={props.adDetails.productName}
                         style={imageStyle}
                       />
                     )}
+                    {/* {!props.imageLoading && (
+                      <img
+                        src={props.adDetails.image ? props.adImage : imagePlaceholder}
+                        alt={props.adDetails.productName}
+                        style={imageStyle}
+                      />
+                    )} */}
                   </Box>
                   <Box sx={descriptionArea}>
                     <Typography variant='h6'>Description</Typography>

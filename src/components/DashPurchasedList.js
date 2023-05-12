@@ -37,7 +37,8 @@ const DashPurchasedList = (props) => {
   const [adId, setAdId] = useState();
   const [ownerId, setOwnerId] = useState();
   const [comment, setComment] = useState("");
-  const [disableBtn, setDisableBtn] = useState(false);
+  const [disableArr, setDisableArr] = useState([]);
+
 
   const getGMTTime = (time) => {
     const dateTime = new Date(time);
@@ -59,7 +60,7 @@ const DashPurchasedList = (props) => {
   };
   const handleReviewSubmit = () => {
     props.addReview(adId, comment, ownerId);
-    setDisableBtn(true);
+    setDisableArr([...disableArr, adId]);
     setOpen(false);
   };
 
@@ -131,7 +132,7 @@ const DashPurchasedList = (props) => {
                     </Button>
                   </TableCell>
                   <TableCell align='right'>
-                    {ad.review.length > 0 || disableBtn ? <Button
+                    {ad.review.length > 0 || disableArr.includes(ad._id) ? <Button
                       size='small'
                       variant='outlined'
                       onClick={(e) => {

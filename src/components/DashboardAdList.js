@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 // Components
 import LoadingDisplay from './LoadingDisplay';
-import Card from './Card';
+import Card from './CardDashboard';
 import { Button, Box, ButtonGroup } from '@mui/material';
 // Styling
 import { boardStyle, adAreaStyle, paginationStyle, dashCardStyle } from './css/dashStyle';
