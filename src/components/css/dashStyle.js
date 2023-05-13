@@ -7,6 +7,7 @@ export const profileTableStyle = {
 export const tableCellStyle = {
   paddingBottom: '.7rem',
   paddingTop: '.7rem',
+  color: 'white'
 };
 
 export const adAreaStyle = {
@@ -22,12 +23,22 @@ export const boardStyle = {
   flexDirection: 'column',
 };
 
+export const paginationBtnStyle = {
+  color: 'white',
+  '&.Mui-disabled': {
+    color: 'gray',
+    borderColor: 'gray'
+  },
+  borderColor: 'white'
+}
+
 export const paginationStyle = {
   display: 'flex',
   justifyContent: 'center',
+  color: 'white'
 };
 
-export const dashCardStyle = { height: '150px' };
+export const dashCardStyle = { height: '150px', borderRadius: '20%' };
 
 export const purchasedListContainerStyle = { display: 'flex', flexDirection: 'column' };
 
@@ -35,5 +46,5 @@ export const purchasedListTableStyle = {
   width: '100%',
   display: 'flex',
   justifyContent: 'center',
-  marginBottom: '1rem'
+  marginBottom: '3rem',
 };

@@ -68,7 +68,7 @@ const Dashboard = (props) => {
   ) : (
     <Fragment>
       <Box sx={boxStyle}>
-        <Paper  sx={paperStyle}>
+        <Paper sx={paperStyle}>
           <Typography variant='h5'>My Profile</Typography>
           <Box sx={profileTableStyle}>
             <Table sx={{ width: '60%', minWidth: '200px' }} aria-label='simple table'>
@@ -121,14 +121,14 @@ const Dashboard = (props) => {
 
       <Box sx={boxStyle}>
         <Paper sx={paperStyle}>
-          <Typography variant='h5'>My ads</Typography>
+          <Typography variant='h5'>My Ads</Typography>
           <DashboardAdList />
         </Paper>
       </Box>
 
       <Box sx={boxStyle}>
         <Paper sx={paperStyle}>
-          <Typography variant='h5'>My purchases</Typography>
+          <Typography variant='h5'>My Purchases</Typography>
           {props.purchasedLoading ? (
             <LoadingDisplay />
           ) : (

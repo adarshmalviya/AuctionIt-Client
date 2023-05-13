@@ -6,7 +6,7 @@ import LoadingDisplay from './LoadingDisplay';
 import Card from './CardDashboard';
 import { Button, Box, ButtonGroup } from '@mui/material';
 // Styling
-import { boardStyle, adAreaStyle, paginationStyle, dashCardStyle } from './css/dashStyle';
+import { boardStyle, adAreaStyle, paginationStyle, dashCardStyle, paginationBtnStyle } from './css/dashStyle';
 
 const DashboardAdList = (props) => {
   const [ads, setAds] = useState([]);
@@ -58,6 +58,7 @@ const DashboardAdList = (props) => {
               <Button
                 disabled={pageNumber === 1}
                 onClick={(e) => clickPageNumberButton(pageNumber - 1)}
+                sx={paginationBtnStyle}
               >
                 Prev
               </Button>
@@ -67,6 +68,7 @@ const DashboardAdList = (props) => {
                     key={num}
                     disabled={pageNumber === num}
                     onClick={(e) => clickPageNumberButton(num)}
+                    sx={paginationBtnStyle}
                   >
                     {num}
                   </Button>
@@ -75,6 +77,7 @@ const DashboardAdList = (props) => {
               <Button
                 disabled={pageNumber === pageNumbers[pageNumbers.length - 1]}
                 onClick={(e) => clickPageNumberButton(pageNumber + 1)}
+                sx={paginationBtnStyle}
               >
                 Next
               </Button>

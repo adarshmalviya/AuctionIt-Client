@@ -32,6 +32,7 @@ import {
   imageContainer,
   bidContainer,
   bidButtonStyle,
+  bidTextStyle,
 } from './css/adStyles.js';
 import { secondsToHms } from '../utils/secondsToHms';
 
@@ -283,10 +284,24 @@ const Ad = (props) => {
                           onChange={(e) => {
                             handleBidPriceChange(e);
                           }}
+                          InputLabelProps={{
+                            sx: {
+                              color: 'white', // Change label color to white
+                              '&.Mui-focused': {
+                                color: 'white', // Change label color to white when focused
+                              },
+                            },
+                          }}
+                          InputProps={{
+                            sx: {
+                              color: 'white', // Change input text color to white
+                            },
+                          }}
+                          sx={bidTextStyle}
                         />
                         <Box sx={{ height: 'auto' }}>
                           <Button
-                            variant='contained'
+                            variant='outlined'
                             disabled={bidButton}
                             onClick={(e) => handleSubmitBid(e)}
                             sx={bidButtonStyle}

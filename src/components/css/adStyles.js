@@ -4,7 +4,8 @@ export const boxStyle = {
   marginTop: '1rem',
 };
 
-export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "whitesmoke" };
+// export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "whitesmoke" };
+export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "linear-gradient(45deg, black, transparent);", color: "white" };
 
 export const adArea = {
   display: 'flex',
@@ -20,7 +21,29 @@ export const descriptionArea = { flex: '50%', margin: '0rem 0rem 0rem .7rem' };
 
 export const bidContainer = { display: 'flex', margin: '.5rem', marginLeft: '0rem' };
 
-export const bidButtonStyle = { height: '100%' };
+export const bidButtonStyle = {
+  marginLeft: '0.2rem',
+  height: '100%',
+  color: 'white',
+  '&.Mui-disabled': {
+    color: 'gray',
+    borderColor: 'gray'
+  },
+  borderColor: 'white'
+};
+
+export const bidTextStyle = {
+  '& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'gray', // Default border color
+  },
+  '& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white', // Change border color on hover
+  },
+  '& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline': {
+    borderColor: 'white', // Change border color when focused
+  },
+  color: 'white'
+}
 
 export const adFormArea = {
   padding: '3rem',

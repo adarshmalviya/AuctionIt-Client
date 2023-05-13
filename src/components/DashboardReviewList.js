@@ -5,7 +5,7 @@ import LoadingDisplay from './LoadingDisplay';
 import Card from './Card';
 import { Button, Box, ButtonGroup } from '@mui/material';
 // Styling
-import { paginationStyle, purchasedListContainerStyle, purchasedListTableStyle } from './css/dashStyle';
+import { paginationBtnStyle, paginationStyle, purchasedListContainerStyle, purchasedListTableStyle, tableCellStyle } from './css/dashStyle';
 
 // MUI
 import {
@@ -63,17 +63,17 @@ const DashboardReviewList = () => {
                         <Table sx={{ width: '70%', minWidth: 650 }} aria-label='simple table'>
                             <TableHead>
                                 <TableRow>
-                                    <TableCell>Product name</TableCell>
-                                    <TableCell align='right'>Review</TableCell>
-                                    <TableCell align='right'>Rating</TableCell>
+                                    <TableCell sx={tableCellStyle}>Product name</TableCell>
+                                    <TableCell align='right' sx={tableCellStyle}>Review</TableCell>
+                                    <TableCell align='right' sx={tableCellStyle}>Rating</TableCell>
                                 </TableRow>
                             </TableHead>
                             <TableBody>
                                 {ads.slice(firstAdIndex, lastAdIndex).map((ad) => (
                                     <TableRow key={ad._id}>
-                                        <TableCell>{ad.productName}</TableCell>
-                                        <TableCell align='right'>{ad.review}</TableCell>
-                                        {ad.rating ? <TableCell align='right'>{ad.rating}</TableCell> : <TableCell align='right'>{0}</TableCell>}
+                                        <TableCell sx={tableCellStyle}>{ad.productName}</TableCell>
+                                        <TableCell align='right' sx={tableCellStyle}>{ad.review}</TableCell>
+                                        {ad.rating ? <TableCell align='right' sx={tableCellStyle}>{ad.rating}</TableCell> : <TableCell align='right'>{0}</TableCell>}
                                         {/* <TableCell align='right'>{ad.rating}</TableCell> */}
                                     </TableRow>
                                 ))}
@@ -86,6 +86,7 @@ const DashboardReviewList = () => {
                                 <Button
                                     disabled={pageNumber === 1}
                                     onClick={(e) => clickPageNumberButton(pageNumber - 1)}
+                                    sx={paginationBtnStyle}
                                 >
                                     Prev
                                 </Button>
@@ -95,6 +96,7 @@ const DashboardReviewList = () => {
                                             key={num}
                                             disabled={pageNumber === num}
                                             onClick={(e) => clickPageNumberButton(num)}
+                                            sx={paginationBtnStyle}
                                         >
                                             {num}
                                         </Button>
@@ -103,6 +105,7 @@ const DashboardReviewList = () => {
                                 <Button
                                     disabled={pageNumber === pageNumbers[pageNumbers.length - 1]}
                                     onClick={(e) => clickPageNumberButton(pageNumber + 1)}
+                                    sx={paginationBtnStyle}
                                 >
                                     Next
                                 </Button>

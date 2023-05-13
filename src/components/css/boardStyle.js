@@ -11,12 +11,13 @@ export const adAreaStyle = {
 export const boardStyle = {
   display: 'flex',
   flexDirection: 'column',
+  color: 'white'
 };
 
 export const paginationStyle = {
   display: 'flex',
   justifyContent: 'center',
-  
+
 };
 
 export const boardCardStyle = {

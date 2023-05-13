@@ -77,7 +77,7 @@ const Register = (props) => {
             </div>
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
                 className='auth__text-field'
                 size='small'
                 variant='outlined'
@@ -93,7 +93,7 @@ const Register = (props) => {
             </div>
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
 
                 className='auth__text-field'
                 size='small'
@@ -109,7 +109,7 @@ const Register = (props) => {
             </div>
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
 
                 className='auth__text-field'
                 size='small'
@@ -125,7 +125,7 @@ const Register = (props) => {
             </div>
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
 
                 className='auth__text-field'
                 size='small'
@@ -140,8 +140,8 @@ const Register = (props) => {
               />
             </div>
             <div className='form-group'>
-              <TextField 
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+              <TextField
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
 
                 className='auth__text-field'
                 size='small'
@@ -158,7 +158,7 @@ const Register = (props) => {
             </div>
             <div className='form-group'>
               <TextField
-              sx={{ input: { color: "black" }, "placeholder": {color: "white"}, background : "white"}} 
+                sx={{ input: { color: "black" }, "placeholder": { color: "white" }, background: "white" }}
                 className='auth__text-field'
                 size='small'
                 variant='outlined'
@@ -185,6 +185,8 @@ const Register = (props) => {
           <p className='my-1'>
             Already have an account? <Link to='/login'>Sign In</Link>
           </p>
+          <div className='auth__separator' />
+
         </div>
       </section>
     </Fragment>

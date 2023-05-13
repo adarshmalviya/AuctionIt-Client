@@ -21,9 +21,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 // Styling
 import {
+  paginationBtnStyle,
   paginationStyle,
   purchasedListContainerStyle,
   purchasedListTableStyle,
+  tableCellStyle,
 } from './css/dashStyle';
 // Api Call
 import { addReview } from '../actions/ad';
@@ -107,26 +109,27 @@ const DashPurchasedList = (props) => {
           <Table sx={{ width: '70%', minWidth: 650 }} aria-label='simple table'>
             <TableHead>
               <TableRow>
-                <TableCell>Product name</TableCell>
-                <TableCell align='right'>Price</TableCell>
-                <TableCell align='right'>Date</TableCell>
-                <TableCell align='right'>Details</TableCell>
-                <TableCell align='right'>Feedback</TableCell>
+                <TableCell sx={tableCellStyle}>Product name</TableCell>
+                <TableCell align='right' sx={tableCellStyle} >Price</TableCell>
+                <TableCell align='right' sx={tableCellStyle} >Date</TableCell>
+                <TableCell align='right' sx={tableCellStyle} >Details</TableCell>
+                <TableCell align='right' sx={tableCellStyle} >Feedback</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {ads.slice(firstAdIndex, lastAdIndex).map((ad) => (
                 <TableRow key={ad._id}>
-                  <TableCell>{ad.productName}</TableCell>
-                  <TableCell align='right'>${ad.currentPrice.$numberDecimal}</TableCell>
-                  <TableCell align='right'>{getGMTTime(ad.updatedAt)}</TableCell>
-                  <TableCell align='right'>
+                  <TableCell sx={tableCellStyle}>{ad.productName}</TableCell>
+                  <TableCell align='right' sx={tableCellStyle}>${ad.currentPrice.$numberDecimal}</TableCell>
+                  <TableCell align='right' sx={tableCellStyle}>{getGMTTime(ad.updatedAt)}</TableCell>
+                  <TableCell align='right' sx={tableCellStyle}>
                     <Button
                       size='small'
                       variant='outlined'
                       onClick={(e) => {
                         handlePurchasedDetails(ad._id);
                       }}
+                      sx={paginationBtnStyle}
                     >
                       Details
                     </Button>
@@ -139,6 +142,7 @@ const DashPurchasedList = (props) => {
                         handleReviewOpen(ad._id, ad.owner);
                       }}
                       disabled
+                      sx={paginationBtnStyle}
                     >
                       Review
                     </Button>
@@ -149,6 +153,7 @@ const DashPurchasedList = (props) => {
                         onClick={(e) => {
                           handleReviewOpen(ad._id, ad.owner);
                         }}
+                        sx={paginationBtnStyle}
                       >
                         Review
                       </Button>
@@ -165,6 +170,7 @@ const DashPurchasedList = (props) => {
               <Button
                 disabled={pageNumber === 1}
                 onClick={(e) => clickPageNumberButton(pageNumber - 1)}
+                sx={paginationBtnStyle}
               >
                 Prev
               </Button>
@@ -174,6 +180,7 @@ const DashPurchasedList = (props) => {
                     key={num}
                     disabled={pageNumber === num}
                     onClick={(e) => clickPageNumberButton(num)}
+                    sx={paginationBtnStyle}
                   >
                     {num}
                   </Button>
@@ -182,6 +189,7 @@ const DashPurchasedList = (props) => {
               <Button
                 disabled={pageNumber === pageNumbers[pageNumbers.length - 1]}
                 onClick={(e) => clickPageNumberButton(pageNumber + 1)}
+                sx={paginationBtnStyle}
               >
                 Next
               </Button>
