@@ -19,6 +19,7 @@ import { setAlert, clearAlerts } from '../actions/alert';
 // Components
 import Spinner from './Spinner';
 import Card from './Card';
+import { paginationBtnStyle } from './css/dashStyle';
 
 const Board = (props) => {
   const [pageNumber, setPageNumber] = useState(1);
@@ -90,10 +91,11 @@ const Board = (props) => {
         })}
       </Box>
       <Box sx={paginationStyle} >
-        <ButtonGroup variant='outlined' size='small' className='prvNext'>
+        <ButtonGroup variant='outlined' size='small'>
           <Button
             disabled={pageNumber === 1}
             onClick={(e) => clickPageNumberButton(pageNumber - 1)}
+            sx={paginationBtnStyle}
           >
             Prev
           </Button>
@@ -103,15 +105,17 @@ const Board = (props) => {
                 key={num}
                 disabled={pageNumber === num}
                 onClick={(e) => clickPageNumberButton(num)}
+                sx={paginationBtnStyle}
               >
                 {num}
               </Button>
             );
           })}
           <Button
-            className='prvNext'
+
             disabled={pageNumber === pageNumbers[pageNumbers.length - 1]}
             onClick={(e) => clickPageNumberButton(pageNumber + 1)}
+            sx={paginationBtnStyle}
           >
             Next
           </Button>
