@@ -26,8 +26,8 @@ export const boardStyle = {
 export const paginationBtnStyle = {
   color: 'white',
   '&.Mui-disabled': {
-    color: 'gray',
-    borderColor: 'gray'
+    color: '#282828',
+    borderColor: '#282828'
   },
   borderColor: 'white'
 }

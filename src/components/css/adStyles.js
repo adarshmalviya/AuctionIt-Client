@@ -5,7 +5,8 @@ export const boxStyle = {
 };
 
 // export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "whitesmoke" };
-export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "linear-gradient(45deg, black, transparent);", color: "white" };
+// export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "linear-gradient(30deg, black, transparent);", color: "white" };
+export const paperStyle = { width: '80%', maxWidth: '950px', padding: '1.5rem', background: "background: rgb(113,103,108);", background: "radial-gradient(circle, rgba(113,103,108,1) 0%, rgba(0,0,0,0.7008053221288515) 100%);", color: "white" };
 
 export const adArea = {
   display: 'flex',
